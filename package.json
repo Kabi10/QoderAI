@@ -1,11 +1,11 @@
 {
-  "name": "qoder-prompt-generator",
+  "name": "qoder-ai",
   "version": "1.0.0",
-  "description": "Universal Prompt Generator for Qoder IDE - Creates specialized prompt suites for any digital product",
+  "description": "Qoder AI - Universal Prompt Generator for Qoder IDE - Creates specialized prompt suites for any digital product",
   "main": "src/index.js",
   "type": "module",
   "bin": {
-    "qoder-prompt": "./src/cli.js"
+    "qoder-ai": "./src/cli.js"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -51,6 +51,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/qoder/prompt-generator.git"
+    "url": "https://github.com/Kabi10/Qoder-Ai.git"
   }
 }

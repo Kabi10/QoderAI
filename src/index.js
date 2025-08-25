@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Universal Prompt Generator for Qoder IDE
+ * Qoder AI Universal Prompt Generator
  * Main entry point for the prompt generation system
  */
 
@@ -115,7 +115,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   
   generator.initialize()
     .then(() => {
-      console.log('Universal Prompt Generator initialized successfully');
+      console.log('Qoder AI Universal Prompt Generator initialized successfully');
       console.log('Use the CLI interface: npm run cli');
       console.log('Available categories:', generator.getAvailableCategories().length);
     })

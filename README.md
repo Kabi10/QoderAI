@@ -1,10 +1,10 @@
-# Universal Prompt Generator for Qoder IDE
+# Qoder AI - Universal Prompt Generator
 
 An intelligent prompt factory system that generates specialized, production-ready prompt suites for creating any digital product, application, or artifact.
 
 ## Overview
 
-The Universal Prompt Generator transforms high-level product specifications into complete, executable development workflows. Each generated prompt suite is self-contained and optimized for specific creation workflows.
+The **Qoder AI Universal Prompt Generator** transforms high-level product specifications into complete, executable development workflows. Each generated prompt suite is self-contained and optimized for specific creation workflows.
 
 ## Features
 
@@ -59,23 +59,23 @@ The Universal Prompt Generator transforms high-level product specifications into
 ### Installation
 
 ```bash
-npm install -g qoder-prompt-generator
+npm install -g qoder-ai
 ```
 
 ### Basic Usage
 
 ```bash
 # Interactive mode
-qoder-prompt
+qoder-ai
 
 # Direct generation
-qoder-prompt generate --category=web-app --name=MyApp --tech-stack="React,Node.js"
+qoder-ai generate --category=web-app --name=MyApp --tech-stack="React,Node.js"
 
 # List available categories
-qoder-prompt list-categories
+qoder-ai list-categories
 
 # Validate generated output
-qoder-prompt validate --path=./output
+qoder-ai validate --path=./output
 ```
 
 ### Core Inputs
@@ -112,7 +112,7 @@ CONSTRAINTS=Mobile-first           # Requirements
 
 ```bash
 git clone <repository>
-cd qoder-prompt-generator
+cd qoder-ai
 npm install
 ```
 

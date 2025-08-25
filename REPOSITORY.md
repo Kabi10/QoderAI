@@ -1,10 +1,10 @@
 # Qoder AI - Universal Prompt Generator
 
-🚀 **Intelligent prompt factory system that generates specialized, production-ready prompt suites for creating any digital product, application, or artifact.**
+🚀 **Qoder AI Universal Prompt Generator** - Intelligent prompt factory system that generates specialized, production-ready prompt suites for creating any digital product, application, or artifact.
 
 ## 🎯 Overview
 
-The Universal Prompt Generator transforms high-level product specifications into complete, executable development workflows. Each generated prompt suite is self-contained, production-ready, and optimized for specific creation workflows.
+The **Qoder AI Universal Prompt Generator** transforms high-level product specifications into complete, executable development workflows. Each generated prompt suite is self-contained, production-ready, and optimized for specific creation workflows.
 
 ## ✨ Key Features
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * CLI Interface for Universal Prompt Generator
+ * CLI Interface for Qoder AI Universal Prompt Generator
  * Provides command-line access to the prompt generation system
  */
 
@@ -28,8 +28,8 @@ async function initializeGenerator() {
 
 // Configure CLI program
 program
-  .name('qoder-prompt')
-  .description('Universal Prompt Generator for Qoder IDE')
+  .name('qoder-ai')
+  .description('Qoder AI Universal Prompt Generator')
   .version('1.0.0');
 
 // Generate command
@@ -163,7 +163,7 @@ program
 
 // Interactive mode
 async function runInteractiveMode(generator, initialOptions = {}) {
-  console.log(chalk.blue.bold('\n🚀 Universal Prompt Generator - Interactive Mode\n'));
+  console.log(chalk.blue.bold('\n🚀 Qoder AI Universal Prompt Generator - Interactive Mode\n'));
 
   const categories = generator.getAvailableCategories();
   const categoryChoices = categories.map(cat => ({
