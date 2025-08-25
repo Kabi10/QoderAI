@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Qoder AI Universal Prompt Generator Demo
+ * Universal Prompt Generator Demo
  * Demonstrates the system capabilities with example generations
  */
 
@@ -14,7 +14,7 @@ import path from 'path';
 const logger = new Logger('Demo');
 
 async function runDemo() {
-  console.log(chalk.blue.bold('\n🚀 Qoder AI Universal Prompt Generator Demo\n'));
+  console.log(chalk.blue.bold('\n🚀 Universal Prompt Generator Demo\n'));
 
   try {
     // Initialize the generator
@@ -234,7 +234,7 @@ function formatBytes(bytes, decimals = 2) {
 // Handle CLI arguments
 const args = process.argv.slice(2);
 if (args.includes('--help') || args.includes('-h')) {
-  console.log(chalk.blue.bold('Qoder AI Universal Prompt Generator Demo\n'));
+  console.log(chalk.blue.bold('Universal Prompt Generator Demo\n'));
   console.log('Usage: node demo.js [options]\n');
   console.log('Options:');
   console.log('  --help, -h     Show this help message');

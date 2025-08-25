@@ -1,8 +1,8 @@
-# Qoder AI Universal Prompt Generator API Documentation
+# Universal Prompt Generator API Documentation
 
 ## Overview
 
-The Qoder AI Universal Prompt Generator provides a comprehensive API for generating specialized prompt suites for any digital product category. This documentation covers all available methods, parameters, and usage patterns.
+The Universal Prompt Generator provides a comprehensive API for generating specialized prompt suites for any digital product category. This documentation covers all available methods, parameters, and usage patterns.
 
 ## Core Classes
 
