@@ -1,0 +1,67 @@
+{
+  "demo": "landing-page",
+  "inputs": {
+    "category": "websites",
+    "projectName": "SaaS Launch Pro",
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
+    "targetAudience": "SaaS entrepreneurs and startup founders",
+    "deploymentTarget": "Netlify",
+    "outputPath": "./prompts/landing-page",
+    "featureFlags": [
+      "analytics",
+      "seo-optimization",
+      "contact-form",
+      "newsletter"
+    ],
+    "constraints": [
+      "Fast loading",
+      "SEO optimized",
+      "Conversion focused"
+    ],
+    "stylePreferences": {
+      "style": "modern",
+      "layout": "hero-centered"
+    },
+    "performanceTargets": {
+      "pageSpeed": "> 95",
+      "conversionRate": "> 5%"
+    }
+  },
+  "results": {
+    "fileCount": 0,
+    "totalSize": 0,
+    "generatedAt": "2025-08-25T23:26:34.382Z"
+  },
+  "files": {
+    "src": {
+      "description": "Website source code",
+      "fileCount": 0,
+      "files": []
+    },
+    "public": {
+      "description": "Static assets",
+      "fileCount": 0,
+      "files": []
+    },
+    "content": {
+      "description": "Content management",
+      "fileCount": 0,
+      "files": []
+    },
+    "styles": {
+      "description": "CSS and styling",
+      "fileCount": 0,
+      "files": []
+    },
+    "docs": {
+      "description": "Setup and usage guides",
+      "fileCount": 0,
+      "files": []
+    }
+  }
+}
