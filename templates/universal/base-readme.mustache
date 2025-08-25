@@ -46,36 +46,36 @@ This project was generated using the Qoder Universal Prompt Generator for the **
 
 ### Prerequisites
 
-{{#utils.includes techStack 'Node.js'}}
+{{#hasNodeJs}}
 - Node.js 18+ and npm/yarn
-{{/utils.includes}}
-{{#utils.includes techStack 'Python'}}
+{{/hasNodeJs}}
+{{#hasPython}}
 - Python 3.8+ and pip
-{{/utils.includes}}
-{{#utils.includes techStack 'Java'}}
+{{/hasPython}}
+{{#hasJava}}
 - Java 11+ and Maven/Gradle
-{{/utils.includes}}
-{{#utils.includes techStack 'Docker'}}
+{{/hasJava}}
+{{#hasDocker}}
 - Docker and Docker Compose
-{{/utils.includes}}
+{{/hasDocker}}
 
 ### Installation
 
 1. **Clone the repository** (if using git)
    ```bash
    git clone <repository-url>
-   cd {{utils.kebabCase projectName}}
+   cd {{projectName}}
    ```
 
 2. **Install dependencies**
-   {{#utils.includes techStack 'Node.js'}}
+   {{#hasNodeJs}}
    ```bash
    npm install
    # or
    yarn install
    ```
-   {{/utils.includes}}
-   {{#utils.includes techStack 'Python'}}
+   {{/hasNodeJs}}
+   {{#hasPython}}
    ```bash
    pip install -r requirements.txt
    # or with virtual environment
@@ -83,7 +83,7 @@ This project was generated using the Qoder Universal Prompt Generator for the **
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
-   {{/utils.includes}}
+   {{/hasPython}}
 
 3. **Configure environment**
    ```bash
@@ -92,71 +92,71 @@ This project was generated using the Qoder Universal Prompt Generator for the **
    ```
 
 4. **Start development server**
-   {{#utils.includes techStack 'React'}}
+   {{#hasReact}}
    ```bash
    npm start
    ```
-   {{/utils.includes}}
-   {{#utils.includes techStack 'Vue'}}
+   {{/hasReact}}
+   {{#hasVue}}
    ```bash
    npm run serve
    ```
-   {{/utils.includes}}
-   {{#utils.includes techStack 'Angular'}}
+   {{/hasVue}}
+   {{#hasAngular}}
    ```bash
    ng serve
    ```
-   {{/utils.includes}}
-   {{#utils.includes techStack 'Express'}}
+   {{/hasAngular}}
+   {{#hasExpress}}
    ```bash
    npm run dev
    ```
-   {{/utils.includes}}
-   {{#utils.includes techStack 'Python'}}
+   {{/hasExpress}}
+   {{#hasPython}}
    ```bash
    python app.py
    # or
    flask run
    ```
-   {{/utils.includes}}
+   {{/hasPython}}
 
 5. **Open your browser**
-   {{#utils.includes category 'web-app'}}
+   {{#hasWebApp}}
    Navigate to [http://localhost:3000](http://localhost:3000)
-   {{/utils.includes}}
-   {{#utils.includes category 'api'}}
+   {{/hasWebApp}}
+   {{#hasApi}}
    API available at [http://localhost:3000](http://localhost:3000)
    API documentation at [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
-   {{/utils.includes}}
+   {{/hasApi}}
 
 ## Project Structure
 
 ```
-{{utils.kebabCase projectName}}/
+{{projectName}}/
 ├── src/                    # Source code
-{{#utils.includes category 'web-app'}}
+{{#hasWebApp}}
 │   ├── components/         # Reusable components
 │   ├── pages/             # Page components
 │   ├── hooks/             # Custom hooks
 │   ├── utils/             # Utility functions
 │   └── styles/            # CSS/SCSS files
-{{/utils.includes}}
-{{#utils.includes category 'api'}}
+{{/hasWebApp}}
+{{#hasApi}}
 │   ├── routes/            # API routes
 │   ├── models/            # Data models
 │   ├── middleware/        # Express middleware
 │   ├── controllers/       # Route controllers
 │   └── utils/             # Utility functions
-{{/utils.includes}}
+{{/hasApi}}
 ├── public/                # Static assets
 ├── docs/                  # Documentation
 ├── tests/                 # Test files
 ├── config/                # Configuration files
-{{#utils.includes techStack 'Docker'}}
+{{#hasDocker}}
 ├── docker/                # Docker configuration
 ├── Dockerfile             # Docker image definition
 ├── docker-compose.yml     # Multi-container setup
-{{/utils.includes}}
+{{/hasDocker}}
 ├── .env.example           # Environment variables template
 ├── package.json           # Dependencies and scripts
 └── README.md              # This file
@@ -166,7 +166,7 @@ This project was generated using the Qoder Universal Prompt Generator for the **
 
 ### Available Scripts
 
-{{#utils.includes techStack 'Node.js'}}
+{{#hasNodeJs}}
 - `npm start` - Start development server
 - `npm run build` - Build for production
 - `npm test` - Run test suite
@@ -174,7 +174,7 @@ This project was generated using the Qoder Universal Prompt Generator for the **
 - `npm run test:coverage` - Generate coverage report
 - `npm run lint` - Run linter
 - `npm run lint:fix` - Fix linting issues
-{{/utils.includes}}
+{{/hasNodeJs}}
 
 ### Environment Variables
 
@@ -186,21 +186,21 @@ NODE_ENV=development
 PORT=3000
 APP_NAME={{projectName}}
 
-{{#utils.includes featureFlags 'database'}}
+{{#hasDatabase}}
 # Database
 DATABASE_URL=your_database_url
-{{/utils.includes}}
+{{/hasDatabase}}
 
-{{#utils.includes featureFlags 'auth'}}
+{{#hasAuth}}
 # Authentication
 JWT_SECRET=your_jwt_secret
-{{/utils.includes}}
+{{/hasAuth}}
 
-{{#utils.includes featureFlags 'api-integration'}}
+{{#hasApiIntegration}}
 # External APIs
 API_KEY=your_api_key
 API_BASE_URL=https://api.example.com
-{{/utils.includes}}
+{{/hasApiIntegration}}
 ```
 
 ### Code Style and Linting
@@ -212,73 +212,73 @@ This project uses:
 
 ### Testing
 
-{{#utils.includes featureFlags 'testing'}}
+{{#hasTesting}}
 - **Unit Tests**: `npm test`
 - **Integration Tests**: `npm run test:integration`
 - **E2E Tests**: `npm run test:e2e`
 - **Coverage**: `npm run test:coverage`
-{{/utils.includes}}
-{{^utils.includes featureFlags 'testing'}}
+{{/hasTesting}}
+{{^hasTesting}}
 Run tests with:
 ```bash
 npm test
 ```
-{{/utils.includes}}
+{{/hasTesting}}
 
 ## Deployment
 
 ### Production Build
 
-{{#utils.includes techStack 'Node.js'}}
+{{#hasNodeJs}}
 ```bash
 npm run build
 npm start
 ```
-{{/utils.includes}}
+{{/hasNodeJs}}
 
 ### Docker Deployment
 
-{{#utils.includes techStack 'Docker'}}
+{{#hasDocker}}
 ```bash
 # Build image
-docker build -t {{utils.kebabCase projectName}} .
+docker build -t {{projectName}} .
 
 # Run container
-docker run -p 3000:3000 {{utils.kebabCase projectName}}
+docker run -p 3000:3000 {{projectName}}
 
 # Using Docker Compose
 docker-compose up
 ```
-{{/utils.includes}}
+{{/hasDocker}}
 
 ### Platform-Specific Deployment
 
-{{#utils.includes deploymentTarget 'Vercel'}}
+{{#hasVercel}}
 #### Vercel
 ```bash
 npx vercel --prod
 ```
-{{/utils.includes}}
+{{/hasVercel}}
 
-{{#utils.includes deploymentTarget 'Netlify'}}
+{{#hasNetlify}}
 #### Netlify
 ```bash
 npm run build
 # Upload dist/ folder to Netlify
 ```
-{{/utils.includes}}
+{{/hasNetlify}}
 
-{{#utils.includes deploymentTarget 'Heroku'}}
+{{#hasHeroku}}
 #### Heroku
 ```bash
-heroku create {{utils.kebabCase projectName}}
+heroku create {{projectName}}
 git push heroku main
 ```
-{{/utils.includes}}
+{{/hasHeroku}}
 
 ## API Documentation
 
-{{#utils.includes category 'api'}}
+{{#hasApi}}
 API documentation is available at `/api/docs` when running the development server.
 
 ### Key Endpoints
@@ -289,7 +289,7 @@ API documentation is available at `/api/docs` when running the development serve
 - `POST /api/users` - Create user
 
 Full API specification follows OpenAPI 3.0 standards.
-{{/utils.includes}}
+{{/hasApi}}
 
 ## Configuration
 

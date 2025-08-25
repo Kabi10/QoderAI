@@ -3,25 +3,25 @@
 {{!-- @category: web-app --}}
 {{!-- @subcategory: react --}}
 {{!-- @techStack: React, TypeScript --}}
-{{!-- @outputPath: src/App.{{#utils.includes techStack 'TypeScript'}}tsx{{else}}jsx{{/utils.includes}} --}}
+{{!-- @outputPath: src/App.tsx --}}
 
 import React, { useState, useEffect } from 'react';
-{{#utils.includes featureFlags 'routing'}}
+{{#hasRouting}}
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-{{/utils.includes}}
-{{#utils.includes featureFlags 'state-management'}}
+{{/hasRouting}}
+{{#hasStateManagement}}
 import { Provider } from 'react-redux';
 import { store } from './store/store';
-{{/utils.includes}}
+{{/hasStateManagement}}
 import './App.css';
 
-{{#utils.includes featureFlags 'routing'}}
+{{#hasRouting}}
 // Components
 const Home = () => (
   <div>
     <h1>Welcome to {{projectName}}</h1>
     <p>Target Audience: {{targetAudience}}</p>
-    <p>Built with: {{#techStack}}{{.}}{{#unless @last}}, {{/unless}}{{/techStack}}</p>
+    <p>Built with: {{#techStack}}{{.}} {{/techStack}}</p>
   </div>
 );
 
@@ -36,7 +36,7 @@ const About = () => (
 );
 
 const Dashboard = () => {
-  const [data, setData] = useState{{#utils.includes techStack 'TypeScript'}}<any[]>{{/utils.includes}}([]);
+  const [data, setData] = useState{{#hasTypeScript}}<any[]>{{/hasTypeScript}}([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <div className="data-grid">
         {data.length > 0 ? (
-          data.map((item{{#utils.includes techStack 'TypeScript'}}: any{{/utils.includes}}, index{{#utils.includes techStack 'TypeScript'}}: number{{/utils.includes}}) => (
+          data.map((item{{#hasTypeScript}}: any{{/hasTypeScript}}, index{{#hasTypeScript}}: number{{/hasTypeScript}}) => (
             <div key={index} className="data-item">
               {JSON.stringify(item)}
             </div>
@@ -79,10 +79,10 @@ const Dashboard = () => {
     </div>
   );
 };
-{{/utils.includes}}
+{{/hasRouting}}
 
-const App{{#utils.includes techStack 'TypeScript'}}: React.FC{{/utils.includes}} = () => {
-  {{^utils.includes featureFlags 'routing'}}
+const App{{#hasTypeScript}}: React.FC{{/hasTypeScript}} = () => {
+  {{^hasRouting}}
   const [count, setCount] = useState(0);
   const [message, setMessage] = useState('Welcome to {{projectName}}');
 
@@ -98,14 +98,14 @@ const App{{#utils.includes techStack 'TypeScript'}}: React.FC{{/utils.includes}}
     setCount(0);
     setMessage('Counter reset!');
   };
-  {{/utils.includes}}
+  {{/hasRouting}}
 
   return (
-    {{#utils.includes featureFlags 'state-management'}}
+    {{#hasStateManagement}}
     <Provider store={store}>
-    {{/utils.includes}}
+    {{/hasStateManagement}}
       <div className="App">
-        {{#utils.includes featureFlags 'routing'}}
+        {{#hasRouting}}
         <Router>
           <nav className="navbar">
             <div className="nav-brand">
@@ -126,7 +126,8 @@ const App{{#utils.includes techStack 'TypeScript'}}: React.FC{{/utils.includes}}
             </Routes>
           </main>
         </Router>
-        {{else}}
+        {{/hasRouting}}
+        {{^hasRouting}}
         <header className="App-header">
           <h1>{message}</h1>
           <p>Target Audience: {{targetAudience}}</p>
@@ -168,16 +169,16 @@ const App{{#utils.includes techStack 'TypeScript'}}: React.FC{{/utils.includes}}
             <p><strong>Generated:</strong> {{date.formatted}}</p>
           </div>
         </header>
-        {{/utils.includes}}
+        {{/hasRouting}}
 
         <footer className="App-footer">
           <p>Built with Qoder Universal Prompt Generator</p>
           <p>Category: {{category}} | Generated: {{date.iso}}</p>
         </footer>
       </div>
-    {{#utils.includes featureFlags 'state-management'}}
+    {{#hasStateManagement}}
     </Provider>
-    {{/utils.includes}}
+    {{/hasStateManagement}}
   );
 };
 

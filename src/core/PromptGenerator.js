@@ -4,8 +4,7 @@
  */
 
 import { Logger } from '../utils/Logger.js';
-import { InputValidator } from './InputValidator.js';
-import { OutputFormatter } from './OutputFormatter.js';
+import { InputValidator, OutputFormatter } from './InputValidator.js';
 
 export class PromptGenerator {
   constructor(dependencies = {}) {
@@ -145,8 +144,35 @@ export class PromptGenerator {
         kebabCase: this.toKebabCase,
         snakeCase: this.toSnakeCase,
         capitalize: this.capitalize,
-        pluralize: this.pluralize
-      }
+        pluralize: this.pluralize,
+        includes: this.createIncludesHelper(inputs)
+      },
+
+      // Template helpers for conditionals
+      hasReact: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('react')),
+      hasVue: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('vue')),
+      hasAngular: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('angular')),
+      hasTypeScript: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('typescript')),
+      hasNodeJs: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('node')),
+      hasPython: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('python')),
+      hasJava: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('java')),
+      hasDocker: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('docker')),
+      hasExpress: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('express')),
+      hasMongoDB: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('mongodb')),
+      hasPostgreSQL: inputs.techStack && inputs.techStack.some(tech => tech.toLowerCase().includes('postgresql')),
+      hasRouting: inputs.featureFlags && inputs.featureFlags.includes('routing'),
+      hasStateManagement: inputs.featureFlags && inputs.featureFlags.includes('state-management'),
+      hasAuth: inputs.featureFlags && inputs.featureFlags.includes('auth'),
+      hasTesting: inputs.featureFlags && inputs.featureFlags.includes('testing'),
+      hasDatabase: inputs.featureFlags && (inputs.featureFlags.includes('database') || inputs.featureFlags.includes('mongodb') || inputs.featureFlags.includes('postgresql')),
+      hasApiIntegration: inputs.featureFlags && inputs.featureFlags.includes('api-integration'),
+      // Category helpers
+      hasWebApp: inputs.category && inputs.category.toLowerCase().includes('web-app'),
+      hasApi: inputs.category && (inputs.category.toLowerCase().includes('api') || inputs.category.toLowerCase().includes('rest')),
+      // Deployment helpers
+      hasVercel: inputs.deploymentTarget && inputs.deploymentTarget.toLowerCase().includes('vercel'),
+      hasNetlify: inputs.deploymentTarget && inputs.deploymentTarget.toLowerCase().includes('netlify'),
+      hasHeroku: inputs.deploymentTarget && inputs.deploymentTarget.toLowerCase().includes('heroku')
     };
   }
 
@@ -189,6 +215,23 @@ export class PromptGenerator {
     } catch (error) {
       throw new Error(`Failed to load transformer: ${type}`);
     }
+  }
+
+  /**
+   * Create includes helper function for templates
+   * @param {Object} inputs - User inputs
+   * @returns {Function} Includes helper function
+   */
+  createIncludesHelper(inputs) {
+    return function(array, value) {
+      if (!array || !Array.isArray(array)) {
+        return false;
+      }
+      return array.some(item => 
+        item && item.toLowerCase && value && value.toLowerCase &&
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+    };
   }
 
   // Utility methods for template context

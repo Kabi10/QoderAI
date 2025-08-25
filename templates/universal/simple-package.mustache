@@ -1,0 +1,25 @@
+{{!-- @title: Simple Package.json Template --}}
+{{!-- @description: Basic package.json for any project --}}
+{{!-- @category: universal --}}
+{{!-- @outputPath: package.json --}}
+
+{
+  "name": "{{projectName}}",
+  "version": "1.0.0",
+  "description": "Generated project: {{projectName}}",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": ["{{category}}"],
+  "author": "",
+  "license": "MIT",
+  "generated": {
+    "category": "{{category}}",
+    "techStack": [{{#techStack}}"{{.}}"{{#unless @last}}, {{/unless}}{{/techStack}}],
+    "targetAudience": "{{targetAudience}}",
+    "deploymentTarget": "{{deploymentTarget}}",
+    "generatedAt": "{{date.iso}}"
+  }
+}

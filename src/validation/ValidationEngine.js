@@ -415,6 +415,19 @@ export class ValidationEngine {
   async validateFileStructure(files) {
     const validation = { valid: true, errors: [], warnings: [] };
 
+    // Handle case where files is not an array or is empty
+    if (!Array.isArray(files)) {
+      validation.valid = false;
+      validation.errors.push('Files parameter must be an array');
+      return validation;
+    }
+
+    if (files.length === 0) {
+      validation.valid = false;
+      validation.errors.push('No files were generated');
+      return validation;
+    }
+
     // Check for required files
     const requiredFiles = ['package.json', 'README.md'];
     const filePaths = files.map(f => path.basename(f.path));
@@ -500,16 +513,27 @@ export class ValidationEngine {
    */
   async assessQuality(files) {
     const metrics = {
-      totalFiles: files.length,
+      totalFiles: 0,
       averageFileSize: 0,
       codeQuality: 0,
       documentation: 0,
       testCoverage: 0
     };
 
+    // Handle case where files is not an array
+    if (!Array.isArray(files)) {
+      return { score: 0, metrics };
+    }
+
+    if (files.length === 0) {
+      return { score: 0, metrics };
+    }
+
+    metrics.totalFiles = files.length;
+
     // Calculate average file size
-    const totalSize = files.reduce((sum, file) => sum + file.size, 0);
-    metrics.averageFileSize = files.length > 0 ? totalSize / files.length : 0;
+    const totalSize = files.reduce((sum, file) => sum + (file.size || 0), 0);
+    metrics.averageFileSize = totalSize / files.length;
 
     // Assess code quality (basic heuristics)
     const codeFiles = files.filter(f => this.isCodeFile(f.path));
@@ -621,6 +645,14 @@ export class ValidationEngine {
   async performSecurityValidation(files) {
     const issues = [];
 
+    // Handle case where files is not an array
+    if (!Array.isArray(files)) {
+      return {
+        passed: false,
+        issues: ['Files parameter must be an array for security validation']
+      };
+    }
+
     for (const file of files) {
       const securityCheck = await this.scanForSecrets(file);
       if (securityCheck.warnings.length > 0) {
@@ -641,6 +673,14 @@ export class ValidationEngine {
 
   async performPerformanceValidation(files) {
     const issues = [];
+
+    // Handle case where files is not an array
+    if (!Array.isArray(files)) {
+      return {
+        passed: false,
+        issues: ['Files parameter must be an array for performance validation']
+      };
+    }
 
     for (const file of files) {
       const sizeCheck = await this.validateFileSize(file);
