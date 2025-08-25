@@ -2,7 +2,7 @@
 
 /**
  * Universal Prompt Generator Demo
- * Demonstrates the system capabilities with example generations
+ * Demonstrates AI prompt generation capabilities with example scenarios
  */
 
 import { UniversalPromptGenerator } from './src/index.js';
@@ -14,7 +14,7 @@ import path from 'path';
 const logger = new Logger('Demo');
 
 async function runDemo() {
-  console.log(chalk.blue.bold('\n🚀 Universal Prompt Generator Demo\n'));
+  console.log(chalk.blue.bold('\n🤖 Universal Prompt Generator Demo - AI Prompt Creation\n'));
 
   try {
     // Initialize the generator
@@ -42,7 +42,7 @@ async function runDemo() {
     await demoLandingPage(generator);
 
     console.log(chalk.green.bold('\n🎉 Demo completed successfully!'));
-    console.log(chalk.blue('Check the ./demo-output/ directory to see generated files.'));
+    console.log(chalk.blue('Check the ./prompts/ directory to see generated AI prompt files.'));
 
   } catch (error) {
     console.error(chalk.red('Demo failed:'), error.message);
@@ -62,7 +62,7 @@ async function demoReactApp(generator) {
     techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
     targetAudience: 'Project managers and team leads',
     deploymentTarget: 'Vercel',
-    outputPath: './demo-output/react-app',
+    outputPath: './prompts/react-app',
     featureFlags: ['routing', 'state-management', 'testing', 'auth'],
     constraints: ['Mobile-first design', 'WCAG accessibility compliance'],
     stylePreferences: {
@@ -102,7 +102,7 @@ async function demoRestAPI(generator) {
     techStack: ['Node.js', 'Express', 'MongoDB', 'Redis'],
     targetAudience: 'Frontend developers and mobile app teams',
     deploymentTarget: 'AWS ECS',
-    outputPath: './demo-output/rest-api',
+    outputPath: './prompts/rest-api',
     featureFlags: ['authentication', 'rate-limiting', 'monitoring', 'documentation'],
     constraints: ['RESTful design', 'OpenAPI specification', 'JWT authentication'],
     performanceTargets: {
@@ -133,12 +133,12 @@ async function demoLandingPage(generator) {
   console.log(chalk.magenta.bold('🌐 Demo 3: Marketing Landing Page\n'));
 
   const inputs = {
-    category: 'landing-page',
+    category: 'websites', // Use the main category
     projectName: 'SaaS Launch Pro',
     techStack: ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS'],
     targetAudience: 'SaaS entrepreneurs and startup founders',
     deploymentTarget: 'Netlify',
-    outputPath: './demo-output/landing-page',
+    outputPath: './prompts/landing-page',
     featureFlags: ['analytics', 'seo-optimization', 'contact-form', 'newsletter'],
     constraints: ['Fast loading', 'SEO optimized', 'Conversion focused'],
     stylePreferences: {
@@ -169,7 +169,7 @@ async function demoLandingPage(generator) {
 }
 
 async function saveDemo(demoName, promptSuite, inputs) {
-  const demoDir = `./demo-output/${demoName}`;
+  const demoDir = `./prompts/${demoName}`;
   await fs.ensureDir(demoDir);
 
   // Save a summary of what was generated

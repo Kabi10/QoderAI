@@ -145,7 +145,7 @@ export class CategoryRegistry {
           core: ['User authentication', 'Responsive design', 'API integration', 'State management'],
           optional: ['PWA capabilities', 'Real-time updates', 'Offline support', 'Analytics']
         },
-        templates: ['base-web-app', 'react-app', 'vue-app', 'angular-app'],
+        templates: ['prompts/react-web-app', 'prompts/landing-page'],
         validationRules: ['syntax-check', 'security-scan', 'performance-check'],
         transformations: [
           { type: 'dependency', config: { autoInstall: true } },
@@ -164,7 +164,7 @@ export class CategoryRegistry {
           core: ['Navigation', 'User onboarding', 'Local storage', 'Network handling'],
           optional: ['Biometric auth', 'Camera integration', 'GPS/Maps', 'Social sharing']
         },
-        templates: ['base-mobile-app', 'react-native-app', 'flutter-app'],
+        templates: ['prompts/mobile-app'],
         validationRules: ['syntax-check', 'performance-check', 'security-scan'],
         transformations: [
           { type: 'platform', config: { ios: true, android: true } },
@@ -183,7 +183,7 @@ export class CategoryRegistry {
           core: ['CRUD operations', 'Authentication', 'Validation', 'Error handling'],
           optional: ['Rate limiting', 'Caching', 'Monitoring', 'API versioning']
         },
-        templates: ['base-rest-api', 'express-api', 'fastapi-api', 'spring-api'],
+        templates: ['prompts/express-api'],
         validationRules: ['api-spec-check', 'security-scan', 'performance-check'],
         transformations: [
           { type: 'openapi', config: { generateSpec: true, includeExamples: true } },

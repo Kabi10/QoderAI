@@ -1,0 +1,83 @@
+{
+  "demo": "rest-api",
+  "inputs": {
+    "category": "rest-api",
+    "projectName": "UserHub API",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Redis"
+    ],
+    "targetAudience": "Frontend developers and mobile app teams",
+    "deploymentTarget": "AWS ECS",
+    "outputPath": "./prompts/rest-api",
+    "featureFlags": [
+      "authentication",
+      "rate-limiting",
+      "monitoring",
+      "documentation"
+    ],
+    "constraints": [
+      "RESTful design",
+      "OpenAPI specification",
+      "JWT authentication"
+    ],
+    "performanceTargets": {
+      "responseTime": "< 200ms",
+      "throughput": "> 1000 RPS"
+    },
+    "complianceRequirements": [
+      "GDPR",
+      "SOC2"
+    ]
+  },
+  "results": {
+    "fileCount": 1,
+    "totalSize": 7372,
+    "generatedAt": "2025-08-25T23:03:56.626Z"
+  },
+  "files": {
+    "src": {
+      "description": "API source code",
+      "fileCount": 0,
+      "files": []
+    },
+    "routes": {
+      "description": "Endpoint definitions",
+      "fileCount": 0,
+      "files": []
+    },
+    "middleware": {
+      "description": "Authentication and middleware",
+      "fileCount": 0,
+      "files": []
+    },
+    "models": {
+      "description": "Data models",
+      "fileCount": 0,
+      "files": []
+    },
+    "docs": {
+      "description": "API documentation",
+      "fileCount": 0,
+      "files": []
+    },
+    "tests": {
+      "description": "API testing suites",
+      "fileCount": 0,
+      "files": []
+    },
+    "prompts": {
+      "description": "prompts files",
+      "fileCount": 1,
+      "files": [
+        {
+          "path": "prompts/express-api.md",
+          "size": 7372,
+          "template": "prompts/express-api"
+        }
+      ]
+    }
+  }
+}

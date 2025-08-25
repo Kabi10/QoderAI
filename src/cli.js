@@ -36,7 +36,7 @@ program
 program
   .command('generate')
   .alias('gen')
-  .description('Generate a prompt suite for a specific category')
+  .description('Generate AI prompt files for a specific category')
   .option('-c, --category <category>', 'Product category')
   .option('-n, --name <name>', 'Project name')
   .option('-t, --tech-stack <stack>', 'Technology stack (comma-separated)')
@@ -66,10 +66,10 @@ program
         process.exit(1);
       }
 
-      // Generate prompt suite
-      const generateSpinner = ora('Generating prompt suite...').start();
+      // Generate AI prompt files
+      const generateSpinner = ora('Generating AI prompt files...').start();
       const promptSuite = await gen.generatePromptSuite(inputs);
-      generateSpinner.succeed('Prompt suite generated successfully');
+      generateSpinner.succeed('AI prompt files generated successfully');
 
       // Display results
       displayResults(promptSuite, inputs);
@@ -163,7 +163,7 @@ program
 
 // Interactive mode
 async function runInteractiveMode(generator, initialOptions = {}) {
-  console.log(chalk.blue.bold('\n🚀 Universal Prompt Generator - Interactive Mode\n'));
+  console.log(chalk.blue.bold('\n🤖 Universal Prompt Generator - AI Prompt Creation\n'));
 
   const categories = generator.getAvailableCategories();
   const categoryChoices = categories.map(cat => ({

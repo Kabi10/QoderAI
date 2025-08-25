@@ -34,8 +34,8 @@ export class TemplateEngine {
       // Ensure templates directory exists
       await fs.ensureDir(this.templatePath);
 
-      // Load all template files
-      const templateFiles = await glob('**/*.mustache', { 
+      // Load all template files (both .mustache for code and .md for prompts)
+      const templateFiles = await glob('**/*.{mustache,md}', { 
         cwd: this.templatePath,
         ignore: ['**/partials/**'] 
       });
@@ -68,7 +68,7 @@ export class TemplateEngine {
       const metadata = this.parseTemplateMetadata(content);
       
       // Create template ID from file path
-      const templateId = templateFile.replace(/\.mustache$/, '').replace(/\\/g, '/');
+      const templateId = templateFile.replace(/\.(mustache|md)$/, '').replace(/\\/g, '/');
       
       this.templates.set(templateId, {
         id: templateId,
@@ -263,12 +263,23 @@ export class TemplateEngine {
     try {
       this.logger.debug(`Rendering template: ${template.id}`);
 
-      // Render the template content
-      const renderedContent = Mustache.render(
-        template.content, 
-        context, 
-        Object.fromEntries(this.partials)
-      );
+      let renderedContent;
+      
+      // For markdown prompt templates, render with Mustache
+      if (template.path.endsWith('.md')) {
+        renderedContent = Mustache.render(
+          template.content, 
+          context, 
+          Object.fromEntries(this.partials)
+        );
+      } else {
+        // For mustache templates, render normally
+        renderedContent = Mustache.render(
+          template.content, 
+          context, 
+          Object.fromEntries(this.partials)
+        );
+      }
 
       // Determine output path
       const outputPath = this.resolveOutputPath(template, context);
@@ -299,6 +310,12 @@ export class TemplateEngine {
    * @returns {string} Resolved output path
    */
   resolveOutputPath(template, context) {
+    // For prompt templates, always output to prompts directory
+    if (template.path.includes('prompts/') || template.path.endsWith('.md')) {
+      const fileName = path.basename(template.id) + '.md';
+      return `prompts/${fileName}`;
+    }
+
     // Use template metadata output path if specified
     if (template.metadata.outputPath) {
       return Mustache.render(template.metadata.outputPath, context);

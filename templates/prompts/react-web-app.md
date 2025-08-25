@@ -1,0 +1,143 @@
+# React TypeScript Web Application - AI Generation Prompt
+
+## Project Overview
+**Category:** Web Application  
+**Project Name:** {{projectName}}  
+**Target Audience:** {{targetAudience}}  
+**Deployment Target:** {{deploymentTarget}}
+
+## Technical Requirements
+
+### Core Technology Stack
+{{#techStack}}
+- {{.}}
+{{/techStack}}
+
+### Architecture Requirements
+- Modern React with functional components and hooks
+- {{#hasTypeScript}}TypeScript for type safety and better developer experience{{/hasTypeScript}}
+- {{#hasRouting}}React Router for client-side navigation{{/hasRouting}}
+- {{#hasStateManagement}}Redux Toolkit for state management{{/hasStateManagement}}
+- Responsive design with mobile-first approach
+
+### Features to Implement
+{{#featureFlags}}
+- {{.}}
+{{/featureFlags}}
+
+## Detailed Implementation Instructions
+
+### 1. Project Structure
+Generate a complete project with the following structure:
+```
+{{projectName}}/
+├── src/
+│   ├── components/           # Reusable UI components
+│   ├── pages/               # Page-level components
+│   ├── hooks/               # Custom React hooks
+│   ├── store/               # Redux store configuration
+│   ├── types/               # TypeScript type definitions
+│   ├── utils/               # Utility functions
+│   ├── styles/              # CSS/SCSS stylesheets
+│   ├── App.{{#hasTypeScript}}tsx{{/hasTypeScript}}{{^hasTypeScript}}jsx{{/hasTypeScript}}
+│   └── index.{{#hasTypeScript}}tsx{{/hasTypeScript}}{{^hasTypeScript}}jsx{{/hasTypeScript}}
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── package.json
+├── {{#hasTypeScript}}tsconfig.json{{/hasTypeScript}}
+├── .gitignore
+└── README.md
+```
+
+### 2. Package.json Configuration
+Include the following dependencies:
+- React ^18.2.0 and React DOM
+- {{#hasTypeScript}}TypeScript and @types packages{{/hasTypeScript}}
+- {{#hasRouting}}React Router DOM ^6.8.1{{/hasRouting}}
+- {{#hasStateManagement}}@reduxjs/toolkit and react-redux{{/hasStateManagement}}
+- Development tools: ESLint, Prettier, testing libraries
+
+### 3. Core Components
+
+#### App Component
+Create the main App component with:
+- {{#hasRouting}}React Router setup with navigation{{/hasRouting}}
+- {{#hasStateManagement}}Redux Provider wrapper{{/hasStateManagement}}
+- Error boundary implementation
+- Main layout structure
+
+#### Page Components
+{{#hasRouting}}
+Generate the following pages:
+- **Home Page**: Welcome screen with project overview
+- **About Page**: Information about the application
+- **Dashboard**: Main functional interface with data display
+{{/hasRouting}}
+
+#### UI Components
+Create reusable components:
+- Header with navigation
+- Footer with project information
+- Loading spinner
+- Error message display
+- Button variants (primary, secondary)
+
+### 4. Styling Requirements
+- Use CSS Modules or styled-components for component styling
+- Implement responsive breakpoints: mobile (320px+), tablet (768px+), desktop (1024px+)
+- Create a consistent color scheme and typography system
+- Ensure accessibility with proper contrast ratios and ARIA labels
+
+### 5. State Management
+{{#hasStateManagement}}
+Set up Redux Toolkit with:
+- Configure store with proper middleware
+- Create feature-based slices for different data domains
+- Implement async thunks for API calls
+- Add Redux DevTools integration for development
+{{/hasStateManagement}}
+
+### 6. Development Configuration
+- Configure ESLint with React and TypeScript rules
+- Set up Prettier for consistent code formatting
+- Add pre-commit hooks with Husky and lint-staged
+- Configure VS Code settings for optimal development experience
+
+### 7. Testing Setup
+- Configure Jest and React Testing Library
+- Create test utilities and custom render functions
+- Write unit tests for all components
+- Add integration tests for key user flows
+- Set up test coverage reporting
+
+### 8. Performance Optimization
+- Implement React.memo for component optimization
+- Use React.lazy for code splitting
+- Optimize bundle size with proper imports
+- Add performance monitoring and metrics
+
+## Constraints and Considerations
+{{#constraints}}
+- {{.}}
+{{/constraints}}
+
+## Success Criteria
+The generated application should:
+1. ✅ Compile without errors in both development and production modes
+2. ✅ Pass all linting and type checking
+3. ✅ Have responsive design that works on all device sizes
+4. ✅ Include comprehensive error handling
+5. ✅ Follow React best practices and patterns
+6. ✅ Be ready for immediate deployment to {{deploymentTarget}}
+7. ✅ Include complete documentation and setup instructions
+
+## Additional Notes
+- Generate complete, production-ready code - not just boilerplate
+- Include helpful comments explaining complex logic
+- Follow naming conventions: PascalCase for components, camelCase for functions
+- Ensure all imports are properly typed and organized
+- Add PropTypes or TypeScript interfaces for all component props
+
+---
+*Generated by Qoder Universal Prompt Generator on {{date.iso}}*

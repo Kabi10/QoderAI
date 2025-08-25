@@ -1,0 +1,87 @@
+{
+  "demo": "react-app",
+  "inputs": {
+    "category": "web-app",
+    "projectName": "TaskMaster Pro",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "targetAudience": "Project managers and team leads",
+    "deploymentTarget": "Vercel",
+    "outputPath": "./prompts/react-app",
+    "featureFlags": [
+      "routing",
+      "state-management",
+      "testing",
+      "auth"
+    ],
+    "constraints": [
+      "Mobile-first design",
+      "WCAG accessibility compliance"
+    ],
+    "stylePreferences": {
+      "theme": "modern",
+      "colorScheme": "blue"
+    },
+    "performanceTargets": {
+      "loadTime": "< 3 seconds",
+      "lighthouse": "> 90"
+    }
+  },
+  "results": {
+    "fileCount": 2,
+    "totalSize": 12820,
+    "generatedAt": "2025-08-25T23:03:56.610Z"
+  },
+  "files": {
+    "src": {
+      "description": "Application source code",
+      "fileCount": 0,
+      "files": []
+    },
+    "public": {
+      "description": "Static assets and resources",
+      "fileCount": 0,
+      "files": []
+    },
+    "docs": {
+      "description": "Documentation and guides",
+      "fileCount": 0,
+      "files": []
+    },
+    "config": {
+      "description": "Configuration files",
+      "fileCount": 0,
+      "files": []
+    },
+    "tests": {
+      "description": "Testing suites",
+      "fileCount": 0,
+      "files": []
+    },
+    "scripts": {
+      "description": "Build and deployment scripts",
+      "fileCount": 0,
+      "files": []
+    },
+    "prompts": {
+      "description": "prompts files",
+      "fileCount": 2,
+      "files": [
+        {
+          "path": "prompts/react-web-app.md",
+          "size": 4497,
+          "template": "prompts/react-web-app"
+        },
+        {
+          "path": "prompts/landing-page.md",
+          "size": 8323,
+          "template": "prompts/landing-page"
+        }
+      ]
+    }
+  }
+}
