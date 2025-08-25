@@ -1,0 +1,83 @@
+{{!-- @title: Base Web Application Template --}}
+{{!-- @description: Foundation template for web applications --}}
+{{!-- @category: web-app --}}
+{{!-- @techStack: React, Vue, Angular --}}
+{{!-- @outputPath: package.json --}}
+
+{
+  "name": "{{projectName}}",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "{{#utils.includes techStack 'React'}}react-scripts start{{/utils.includes}}{{#utils.includes techStack 'Vue'}}vue-cli-service serve{{/utils.includes}}{{#utils.includes techStack 'Angular'}}ng serve{{/utils.includes}}",
+    "build": "{{#utils.includes techStack 'React'}}react-scripts build{{/utils.includes}}{{#utils.includes techStack 'Vue'}}vue-cli-service build{{/utils.includes}}{{#utils.includes techStack 'Angular'}}ng build{{/utils.includes}}",
+    "test": "{{#utils.includes techStack 'React'}}react-scripts test{{/utils.includes}}{{#utils.includes techStack 'Vue'}}vue-cli-service test:unit{{/utils.includes}}{{#utils.includes techStack 'Angular'}}ng test{{/utils.includes}}",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
+  },
+  "keywords": [
+    "web-app",
+    "{{category}}",
+    "{{#techStack}}{{.}}{{#unless @last}},{{/unless}}{{/techStack}}"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    {{#utils.includes techStack 'React'}}
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    {{/utils.includes}}
+    {{#utils.includes techStack 'Vue'}}
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6",
+    "vuex": "^4.1.0",
+    {{/utils.includes}}
+    {{#utils.includes techStack 'Angular'}}
+    "@angular/animations": "^15.1.0",
+    "@angular/common": "^15.1.0",
+    "@angular/compiler": "^15.1.0",
+    "@angular/core": "^15.1.0",
+    "@angular/forms": "^15.1.0",
+    "@angular/platform-browser": "^15.1.0",
+    "@angular/platform-browser-dynamic": "^15.1.0",
+    "@angular/router": "^15.1.0",
+    {{/utils.includes}}
+    {{#utils.includes techStack 'TypeScript'}}
+    "typescript": "^4.9.5",
+    {{/utils.includes}}
+    "axios": "^1.3.4"
+  },
+  "devDependencies": {
+    {{#utils.includes techStack 'React'}}
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "react-scripts": "5.0.1",
+    {{/utils.includes}}
+    {{#utils.includes techStack 'Vue'}}
+    "@vue/cli-service": "^5.0.8",
+    "@vue/test-utils": "^2.3.0",
+    {{/utils.includes}}
+    {{#utils.includes techStack 'Angular'}}
+    "@angular-devkit/build-angular": "^15.1.0",
+    "@angular/cli": "^15.1.0",
+    "@angular/compiler-cli": "^15.1.0",
+    {{/utils.includes}}
+    "eslint": "^8.36.0",
+    "prettier": "^2.8.4",
+    "@types/node": "^18.14.6"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

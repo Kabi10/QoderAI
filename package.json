@@ -1,0 +1,56 @@
+{
+  "name": "qoder-prompt-generator",
+  "version": "1.0.0",
+  "description": "Universal Prompt Generator for Qoder IDE - Creates specialized prompt suites for any digital product",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "qoder-prompt": "./src/cli.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "cli": "node src/cli.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix",
+    "build": "node scripts/build.js",
+    "dev": "nodemon src/index.js",
+    "validate": "node src/validation/validate-templates.js"
+  },
+  "keywords": [
+    "qoder",
+    "prompt-generator",
+    "templates",
+    "development",
+    "automation",
+    "code-generation"
+  ],
+  "author": "Qoder Team",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "mustache": "^4.2.0",
+    "yaml": "^2.3.4",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "glob": "^10.3.10",
+    "fs-extra": "^11.1.1",
+    "joi": "^17.11.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.55.0",
+    "nodemon": "^3.0.2",
+    "@types/node": "^20.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qoder/prompt-generator.git"
+  }
+}

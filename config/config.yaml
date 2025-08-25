@@ -1,0 +1,207 @@
+# Universal Prompt Generator Configuration
+
+# System Settings
+system:
+  version: "1.0.0"
+  name: "Qoder Universal Prompt Generator"
+  maxFileSize: 5242880 # 5MB
+  maxGenerationTime: 30000 # 30 seconds
+  outputEncoding: "utf8"
+
+# Template Engine Settings
+templateEngine:
+  delimiter: "{{|}}"
+  escapeHtml: false
+  allowProtoAccess: false
+  strict: true
+  
+# File Generation Settings
+fileGeneration:
+  defaultPermissions: "0644"
+  createDirectories: true
+  overwriteFiles: false
+  backupExisting: true
+
+# Validation Settings
+validation:
+  enableSyntaxCheck: true
+  enableSecurityScan: true
+  enablePerformanceCheck: true
+  maxFileCount: 100
+  allowedFileExtensions:
+    - ".js"
+    - ".ts"
+    - ".jsx"
+    - ".tsx"
+    - ".vue"
+    - ".html"
+    - ".css"
+    - ".scss"
+    - ".json"
+    - ".md"
+    - ".yaml"
+    - ".yml"
+    - ".env"
+    - ".gitignore"
+    - ".dockerfile"
+
+# Category Configuration
+categories:
+  applications:
+    enabled: true
+    subcategories:
+      - web-app
+      - mobile-app
+      - desktop-app
+      - cli-tool
+      - browser-extension
+      - pwa
+    
+  websites:
+    enabled: true
+    subcategories:
+      - landing-page
+      - portfolio-site
+      - blog-platform
+      - e-commerce
+      - documentation-site
+      - corporate-website
+    
+  apis:
+    enabled: true
+    subcategories:
+      - rest-api
+      - graphql-api
+      - websocket-service
+      - webhook-handler
+      - auth-service
+      - data-pipeline
+    
+  games:
+    enabled: true
+    subcategories:
+      - web-game
+      - mobile-game
+      - interactive-story
+      - simulation
+      - ar-vr-experience
+    
+  ai-ml:
+    enabled: true
+    subcategories:
+      - chatbot
+      - ml-model
+      - computer-vision
+      - nlp-service
+      - recommendation-engine
+      - data-analysis-tool
+    
+  devops:
+    enabled: true
+    subcategories:
+      - ci-cd-pipeline
+      - dev-environment
+      - code-generator
+      - testing-framework
+      - monitoring-dashboard
+      - deployment-automation
+    
+  content:
+    enabled: true
+    subcategories:
+      - video-platform
+      - image-gallery
+      - podcast-platform
+      - digital-magazine
+      - learning-platform
+      - social-platform
+    
+  business:
+    enabled: true
+    subcategories:
+      - crm-system
+      - inventory-manager
+      - project-manager
+      - invoice-generator
+      - booking-system
+      - survey-platform
+    
+  blockchain:
+    enabled: true
+    subcategories:
+      - smart-contract
+      - dapp
+      - nft-marketplace
+      - defi-protocol
+      - dao-platform
+    
+  iot:
+    enabled: true
+    subcategories:
+      - iot-dashboard
+      - sensor-network
+      - home-automation
+      - industrial-monitoring
+      - wearable-app
+
+# Technology Stack Mappings
+techStacks:
+  frontend:
+    react: ["React", "Next.js", "Vite", "TypeScript"]
+    vue: ["Vue.js", "Nuxt.js", "Vite", "TypeScript"]
+    angular: ["Angular", "Angular CLI", "TypeScript", "RxJS"]
+    vanilla: ["HTML5", "CSS3", "JavaScript", "Webpack"]
+    
+  backend:
+    node: ["Node.js", "Express", "Fastify", "TypeScript"]
+    python: ["Python", "FastAPI", "Django", "Flask"]
+    java: ["Java", "Spring Boot", "Maven", "Gradle"]
+    golang: ["Go", "Gin", "Echo", "GORM"]
+    
+  database:
+    sql: ["PostgreSQL", "MySQL", "SQLite"]
+    nosql: ["MongoDB", "Redis", "CouchDB"]
+    
+  mobile:
+    native: ["Swift", "Kotlin", "React Native", "Flutter"]
+    hybrid: ["Ionic", "Cordova", "Capacitor"]
+    
+  cloud:
+    aws: ["AWS", "Lambda", "S3", "RDS", "CloudFormation"]
+    azure: ["Azure", "Functions", "Cosmos DB", "ARM"]
+    gcp: ["GCP", "Cloud Functions", "Firestore", "Cloud Build"]
+
+# Output Paths
+outputPaths:
+  generated: "./generated"
+  templates: "./templates"
+  validation: "./validation"
+  docs: "./docs"
+  config: "./config"
+
+# Quality Metrics
+qualityMetrics:
+  minTestCoverage: 80
+  maxCyclomaticComplexity: 10
+  maxFunctionLength: 50
+  maxFileLength: 500
+  
+# Performance Targets
+performanceTargets:
+  generationTime: 5000 # 5 seconds
+  templateRenderTime: 1000 # 1 second
+  validationTime: 2000 # 2 seconds
+
+# Security Settings
+security:
+  sanitizeInputs: true
+  validateFileTypes: true
+  preventPathTraversal: true
+  maxInputLength: 10000
+  
+# Logging Configuration
+logging:
+  level: "info"
+  format: "json"
+  timestamp: true
+  colors: true
