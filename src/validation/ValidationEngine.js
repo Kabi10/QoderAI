@@ -409,20 +409,23 @@ export class ValidationEngine {
 
   /**
    * Validate file structure
-   * @param {Array} files - Array of file objects
+   * @param {Object} filesStructure - Files organized by directory structure
    * @returns {Object} Structure validation results
    */
-  async validateFileStructure(files) {
+  async validateFileStructure(filesStructure) {
     const validation = { valid: true, errors: [], warnings: [] };
 
-    // Handle case where files is not an array or is empty
-    if (!Array.isArray(files)) {
+    // Handle case where filesStructure is not an object
+    if (!filesStructure || typeof filesStructure !== 'object') {
       validation.valid = false;
-      validation.errors.push('Files parameter must be an array');
+      validation.errors.push('Files structure must be an object');
       return validation;
     }
 
-    if (files.length === 0) {
+    // Extract all files from the directory structure
+    const allFiles = this.extractAllFilesFromStructure(filesStructure);
+
+    if (allFiles.length === 0) {
       validation.valid = false;
       validation.errors.push('No files were generated');
       return validation;
@@ -430,7 +433,7 @@ export class ValidationEngine {
 
     // Check for required files
     const requiredFiles = ['package.json', 'README.md'];
-    const filePaths = files.map(f => path.basename(f.path));
+    const filePaths = allFiles.map(f => path.basename(f.path));
 
     for (const requiredFile of requiredFiles) {
       if (!filePaths.includes(requiredFile)) {
@@ -508,10 +511,10 @@ export class ValidationEngine {
 
   /**
    * Assess overall quality of generated files
-   * @param {Array} files - Generated files
+   * @param {Object} filesStructure - Files organized by directory structure
    * @returns {Object} Quality assessment
    */
-  async assessQuality(files) {
+  async assessQuality(filesStructure) {
     const metrics = {
       totalFiles: 0,
       averageFileSize: 0,
@@ -520,30 +523,37 @@ export class ValidationEngine {
       testCoverage: 0
     };
 
-    // Handle case where files is not an array
-    if (!Array.isArray(files)) {
+    // Handle case where filesStructure is not an object
+    if (!filesStructure || typeof filesStructure !== 'object') {
       return { score: 0, metrics };
     }
 
-    if (files.length === 0) {
+    // Extract all files from the directory structure
+    const allFiles = this.extractAllFilesFromStructure(filesStructure);
+
+    if (allFiles.length === 0) {
       return { score: 0, metrics };
     }
 
-    metrics.totalFiles = files.length;
+    metrics.totalFiles = allFiles.length;
 
     // Calculate average file size
-    const totalSize = files.reduce((sum, file) => sum + (file.size || 0), 0);
-    metrics.averageFileSize = totalSize / files.length;
+    const totalSize = allFiles.reduce((sum, file) => sum + (file.size || 0), 0);
+    metrics.averageFileSize = totalSize / allFiles.length;
 
     // Assess code quality (basic heuristics)
-    const codeFiles = files.filter(f => this.isCodeFile(f.path));
+    const codeFiles = allFiles.filter(f => this.isCodeFile(f.path));
     if (codeFiles.length > 0) {
       metrics.codeQuality = this.assessCodeQuality(codeFiles);
     }
 
     // Check documentation presence
-    const docFiles = files.filter(f => this.isDocumentationFile(f.path));
+    const docFiles = allFiles.filter(f => this.isDocumentationFile(f.path));
     metrics.documentation = Math.min(1, docFiles.length / Math.max(1, codeFiles.length / 5));
+
+    // Check test coverage
+    const testFiles = allFiles.filter(f => this.isTestFile(f.path));
+    metrics.testCoverage = Math.min(1, testFiles.length / Math.max(1, codeFiles.length / 3));
 
     // Calculate overall quality score
     const score = (
@@ -601,6 +611,28 @@ export class ValidationEngine {
     return docExtensions.includes(path.extname(filePath)) || fileName.includes('readme');
   }
 
+  isTestFile(filePath) {
+    const testPatterns = ['test', 'spec', '__tests__'];
+    return testPatterns.some(pattern => filePath.toLowerCase().includes(pattern));
+  }
+
+  /**
+   * Extract all files from the nested directory structure
+   * @param {Object} filesStructure - Files organized by directories
+   * @returns {Array} Flat array of all files
+   */
+  extractAllFilesFromStructure(filesStructure) {
+    const allFiles = [];
+    
+    for (const [directory, dirInfo] of Object.entries(filesStructure)) {
+      if (dirInfo && dirInfo.files && Array.isArray(dirInfo.files)) {
+        allFiles.push(...dirInfo.files);
+      }
+    }
+    
+    return allFiles;
+  }
+
   assessCodeQuality(codeFiles) {
     // Simple heuristics for code quality
     let qualityScore = 0;
@@ -642,18 +674,21 @@ export class ValidationEngine {
 
   // Additional validation methods can be added here...
 
-  async performSecurityValidation(files) {
+  async performSecurityValidation(filesStructure) {
     const issues = [];
 
-    // Handle case where files is not an array
-    if (!Array.isArray(files)) {
+    // Handle case where filesStructure is not an object
+    if (!filesStructure || typeof filesStructure !== 'object') {
       return {
         passed: false,
-        issues: ['Files parameter must be an array for security validation']
+        issues: ['Files structure must be an object for security validation']
       };
     }
 
-    for (const file of files) {
+    // Extract all files from the directory structure
+    const allFiles = this.extractAllFilesFromStructure(filesStructure);
+
+    for (const file of allFiles) {
       const securityCheck = await this.scanForSecrets(file);
       if (securityCheck.warnings.length > 0) {
         issues.push(...securityCheck.warnings);
@@ -671,18 +706,21 @@ export class ValidationEngine {
     };
   }
 
-  async performPerformanceValidation(files) {
+  async performPerformanceValidation(filesStructure) {
     const issues = [];
 
-    // Handle case where files is not an array
-    if (!Array.isArray(files)) {
+    // Handle case where filesStructure is not an object
+    if (!filesStructure || typeof filesStructure !== 'object') {
       return {
         passed: false,
-        issues: ['Files parameter must be an array for performance validation']
+        issues: ['Files structure must be an object for performance validation']
       };
     }
 
-    for (const file of files) {
+    // Extract all files from the directory structure
+    const allFiles = this.extractAllFilesFromStructure(filesStructure);
+
+    for (const file of allFiles) {
       const sizeCheck = await this.validateFileSize(file);
       if (!sizeCheck.valid) {
         issues.push(...sizeCheck.warnings);

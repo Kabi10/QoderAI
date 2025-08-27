@@ -33,8 +33,8 @@
   },
   "results": {
     "fileCount": 2,
-    "totalSize": 12820,
-    "generatedAt": "2025-08-25T23:26:34.358Z"
+    "totalSize": 12809,
+    "generatedAt": "2025-08-27T04:27:15.244Z"
   },
   "files": {
     "src": {
@@ -73,12 +73,12 @@
       "files": [
         {
           "path": "prompts/react-web-app.md",
-          "size": 4497,
+          "size": 4492,
           "template": "prompts/react-web-app"
         },
         {
           "path": "prompts/landing-page.md",
-          "size": 8323,
+          "size": 8317,
           "template": "prompts/landing-page"
         }
       ]

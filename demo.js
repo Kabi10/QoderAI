@@ -133,7 +133,7 @@ async function demoLandingPage(generator) {
   console.log(chalk.magenta.bold('🌐 Demo 3: Marketing Landing Page\n'));
 
   const inputs = {
-    category: 'websites', // Use the main category
+    category: 'landing-page', // Use the specific subcategory
     projectName: 'SaaS Launch Pro',
     techStack: ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS'],
     targetAudience: 'SaaS entrepreneurs and startup founders',

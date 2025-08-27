@@ -1,7 +1,7 @@
 {
   "demo": "landing-page",
   "inputs": {
-    "category": "websites",
+    "category": "landing-page",
     "projectName": "SaaS Launch Pro",
     "techStack": [
       "HTML5",
@@ -33,9 +33,9 @@
     }
   },
   "results": {
-    "fileCount": 0,
-    "totalSize": 0,
-    "generatedAt": "2025-08-25T23:26:34.382Z"
+    "fileCount": 3,
+    "totalSize": 8719,
+    "generatedAt": "2025-08-27T04:27:15.299Z"
   },
   "files": {
     "src": {
@@ -45,8 +45,19 @@
     },
     "public": {
       "description": "Static assets",
-      "fileCount": 0,
-      "files": []
+      "fileCount": 2,
+      "files": [
+        {
+          "path": "public/sitemap.xml",
+          "size": 259,
+          "template": "sitemap"
+        },
+        {
+          "path": "public/robots.txt",
+          "size": 184,
+          "template": "robots-txt"
+        }
+      ]
     },
     "content": {
       "description": "Content management",
@@ -62,6 +73,17 @@
       "description": "Setup and usage guides",
       "fileCount": 0,
       "files": []
+    },
+    "prompts": {
+      "description": "prompts files",
+      "fileCount": 1,
+      "files": [
+        {
+          "path": "prompts/landing-page.md",
+          "size": 8276,
+          "template": "prompts/landing-page"
+        }
+      ]
     }
   }
 }

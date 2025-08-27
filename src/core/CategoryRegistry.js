@@ -189,6 +189,63 @@ export class CategoryRegistry {
           { type: 'openapi', config: { generateSpec: true, includeExamples: true } },
           { type: 'testing', config: { generateTests: true, includeE2E: true } }
         ]
+      },
+      'landing-page': {
+        name: 'Landing Page',
+        description: 'Marketing and promotional landing pages',
+        techStacks: {
+          preferred: ['HTML5', 'CSS3', 'JavaScript', 'React'],
+          frameworks: ['Tailwind CSS', 'Bootstrap', 'Next.js'],
+          tools: ['Webpack', 'Vite', 'Parcel']
+        },
+        features: {
+          core: ['Responsive design', 'SEO optimization', 'Contact forms', 'Analytics'],
+          optional: ['Newsletter signup', 'Social media integration', 'A/B testing', 'Performance tracking']
+        },
+        templates: ['prompts/landing-page'],
+        validationRules: ['syntax-check', 'seo-check', 'performance-check'],
+        transformations: [
+          { type: 'formatting', config: { prettier: true, minify: true } },
+          { type: 'seo', config: { generateMeta: true, sitemap: true } }
+        ]
+      },
+      'desktop-app': {
+        name: 'Desktop Application',
+        description: 'Cross-platform desktop applications',
+        techStacks: {
+          preferred: ['Electron', 'Tauri', 'Flutter Desktop'],
+          backend: ['Node.js', 'Rust', 'C++'],
+          frameworks: ['React', 'Vue.js', 'Angular']
+        },
+        features: {
+          core: ['Window management', 'File system access', 'System tray', 'Auto-updater'],
+          optional: ['Native menus', 'Notifications', 'Hardware access', 'Offline storage']
+        },
+        templates: ['prompts/desktop-app'],
+        validationRules: ['syntax-check', 'security-scan', 'performance-check'],
+        transformations: [
+          { type: 'packaging', config: { generateInstaller: true, codeSign: true } },
+          { type: 'testing', config: { generateTests: true, includeE2E: true } }
+        ]
+      },
+      'web-game': {
+        name: 'Web Game',
+        description: 'Browser-based games and interactive experiences',
+        techStacks: {
+          preferred: ['HTML5 Canvas', 'WebGL', 'Three.js', 'Phaser'],
+          audio: ['Web Audio API', 'Howler.js'],
+          physics: ['Matter.js', 'Cannon.js']
+        },
+        features: {
+          core: ['Game loop', 'Input handling', 'Sprite management', 'Audio system'],
+          optional: ['Multiplayer', 'Leaderboards', 'Save system', 'Mobile controls']
+        },
+        templates: ['prompts/web-game'],
+        validationRules: ['syntax-check', 'performance-check'],
+        transformations: [
+          { type: 'assets', config: { optimizeImages: true, generateSprites: true } },
+          { type: 'performance', config: { minify: true, bundleOptimization: true } }
+        ]
       }
     };
 

@@ -33,9 +33,9 @@
     ]
   },
   "results": {
-    "fileCount": 1,
-    "totalSize": 7372,
-    "generatedAt": "2025-08-25T23:26:34.374Z"
+    "fileCount": 4,
+    "totalSize": 12961,
+    "generatedAt": "2025-08-27T04:27:15.280Z"
   },
   "files": {
     "src": {
@@ -60,13 +60,25 @@
     },
     "docs": {
       "description": "API documentation",
-      "fileCount": 0,
-      "files": []
+      "fileCount": 1,
+      "files": [
+        {
+          "path": "docs/openapi.json",
+          "size": 4547,
+          "template": "openapi-spec"
+        }
+      ]
     },
     "tests": {
       "description": "API testing suites",
-      "fileCount": 0,
-      "files": []
+      "fileCount": 1,
+      "files": [
+        {
+          "path": "tests/e2e/app.e2e.test.js",
+          "size": 621,
+          "template": "e2e-test"
+        }
+      ]
     },
     "prompts": {
       "description": "prompts files",
@@ -76,6 +88,17 @@
           "path": "prompts/express-api.md",
           "size": 7372,
           "template": "prompts/express-api"
+        }
+      ]
+    },
+    "root": {
+      "description": "root files",
+      "fileCount": 1,
+      "files": [
+        {
+          "path": "jest.config.js",
+          "size": 421,
+          "template": "jest-config"
         }
       ]
     }
