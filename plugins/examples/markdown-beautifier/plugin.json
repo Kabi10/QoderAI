@@ -1,0 +1,86 @@
+{
+  "id": "markdown-beautifier",
+  "name": "Markdown Beautifier",
+  "version": "1.0.0",
+  "description": "Advanced markdown beautification and optimization transformer plugin",
+  "type": "transformer",
+  "main": "index.js",
+  "author": {
+    "name": "Qoder AI Team",
+    "email": "team@qoder.ai"
+  },
+  "license": "MIT",
+  "keywords": ["markdown", "beautifier", "formatter", "transformer", "optimization"],
+  "qoderVersion": "^1.0.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "capabilities": {
+    "fileTypes": [".md", ".markdown", ".mdown", ".mkd"],
+    "transformations": [
+      "whitespace-normalization",
+      "heading-structure-fix", 
+      "table-formatting",
+      "image-optimization",
+      "table-of-contents",
+      "link-validation"
+    ],
+    "async": true,
+    "streaming": false
+  },
+  "configuration": {
+    "formatTables": {
+      "type": "boolean",
+      "default": true,
+      "description": "Format and align markdown tables for better readability"
+    },
+    "optimizeImages": {
+      "type": "boolean", 
+      "default": true,
+      "description": "Optimize image references and automatically add alt text"
+    },
+    "addTableOfContents": {
+      "type": "boolean",
+      "default": true,
+      "description": "Automatically generate table of contents for documents with 3+ headings"
+    },
+    "normalizeWhitespace": {
+      "type": "boolean",
+      "default": true,
+      "description": "Normalize whitespace, line endings, and remove excessive blank lines"
+    },
+    "validateLinks": {
+      "type": "boolean",
+      "default": true,
+      "description": "Validate markdown links and report potential issues"
+    },
+    "fixHeadingStructure": {
+      "type": "boolean",
+      "default": true,
+      "description": "Fix heading hierarchy to ensure proper document structure"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "examples": [
+    {
+      "name": "Basic Usage",
+      "description": "Beautify markdown with default settings",
+      "input": "# My Document\n\n##    Unformatted Section    \n\n|Name|Age|\n|---|---|\n|John|25|\n|Jane|30|",
+      "output": "# My Document\n\n## Unformatted Section\n\n| Name | Age |\n|------|-----|\n| John | 25  |\n| Jane | 30  |"
+    }
+  ],
+  "documentation": {
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "api": "docs/api.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qoder-ai/plugins"
+  },
+  "bugs": {
+    "url": "https://github.com/qoder-ai/plugins/issues"
+  },
+  "homepage": "https://github.com/qoder-ai/plugins#readme"
+}

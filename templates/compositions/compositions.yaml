@@ -1,0 +1,117 @@
+# Example composition configurations for the template system
+
+# Basic compositions
+web-application:
+  base: "web-app-base"
+  mixins:
+    - "authentication-mixin"
+    - "responsive-design-mixin"
+    - "performance-optimization-mixin"
+  transformations:
+    - type: "conditional"
+      condition:
+        property: "techStack"
+        operator: "contains"
+        value: "TypeScript"
+      transformations:
+        - type: "insert"
+          at: "beginning"
+          content: "# TypeScript Configuration\n\nThis project uses TypeScript for enhanced type safety."
+
+advanced-api:
+  base: "api-base"
+  mixins:
+    - "authentication-mixin"
+    - "documentation-mixin"
+    - "monitoring-mixin"
+    - "testing-mixin"
+  transformations:
+    - type: "replace"
+      pattern: "{{API_VERSION}}"
+      replacement: "v2"
+    - type: "conditional"
+      condition:
+        property: "featureFlags"
+        operator: "contains"
+        value: "graphql"
+      transformations:
+        - type: "insert"
+          at: "end"
+          content: "\n\n## GraphQL Integration\n\nThis API includes GraphQL endpoints for flexible data querying."
+
+enterprise-microservice:
+  base: "microservice-base"
+  mixins:
+    - "authentication-mixin"
+    - "monitoring-mixin"
+    - "logging-mixin"
+    - "security-mixin"
+    - "deployment-mixin"
+  transformations:
+    - type: "conditional"
+      condition:
+        property: "deploymentTarget"
+        operator: "equals"
+        value: "Kubernetes"
+      transformations:
+        - type: "insert"
+          at: "end"
+          content: "\n\n## Kubernetes Configuration\n\nIncludes Helm charts and deployment manifests for Kubernetes."
+
+mobile-app-native:
+  base: "mobile-app-base"
+  mixins:
+    - "native-features-mixin"
+    - "push-notifications-mixin"
+    - "offline-support-mixin"
+    - "analytics-mixin"
+
+progressive-web-app:
+  base: "web-app-base"
+  mixins:
+    - "pwa-features-mixin"
+    - "service-worker-mixin"
+    - "offline-support-mixin"
+    - "responsive-design-mixin"
+
+landing-page-marketing:
+  base: "landing-page-base"
+  mixins:
+    - "seo-optimization-mixin"
+    - "analytics-mixin"
+    - "conversion-tracking-mixin"
+    - "a-b-testing-mixin"
+
+blockchain-dapp:
+  base: "dapp-base"
+  mixins:
+    - "web3-integration-mixin"
+    - "smart-contract-mixin"
+    - "wallet-connection-mixin"
+    - "defi-features-mixin"
+
+ml-pipeline:
+  base: "ml-base"
+  mixins:
+    - "data-preprocessing-mixin"
+    - "model-training-mixin"
+    - "model-evaluation-mixin"
+    - "deployment-automation-mixin"
+
+game-development:
+  base: "game-base"
+  mixins:
+    - "physics-engine-mixin"
+    - "audio-system-mixin"
+    - "multiplayer-mixin"
+    - "monetization-mixin"
+  transformations:
+    - type: "conditional"
+      condition:
+        property: "techStack"
+        operator: "contains"
+        value: "Unity"
+      transformations:
+        - type: "insert"
+          at: "beginning"
+          content: "# Unity Game Development\n\nThis project is built using Unity Engine."
